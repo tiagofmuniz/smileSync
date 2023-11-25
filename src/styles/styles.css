@@ -1,0 +1,222 @@
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../assets/bg.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+body .previous {
+  padding: 10px;
+  font-weight: 500;
+  cursor: pointer;
+}
+body .forgotPass {
+  padding: 10px 0;
+  cursor: pointer;
+}
+body input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px white inset;
+}
+body .homeScreen {
+  display: flex;
+  align-items: center;
+  height: 80vh;
+  border-radius: 10px;
+  box-shadow: 2px 3px 5px 5px rgba(104, 103, 103, 0.4431372549);
+}
+body .homeScreen .welcome {
+  height: 100%;
+  text-align: center;
+  background-color: #00312E;
+  color: #FFF;
+  padding: 20px;
+  border-radius: 10px 0 0 10px;
+}
+body .homeScreen .welcome h1 {
+  font-size: 2em;
+  padding: 50px 0;
+}
+body .homeScreen .welcome p {
+  padding: 10px 0 80px 0;
+}
+body .homeScreen .welcome #btnToEnter {
+  padding: 10px 30px;
+  width: 80%;
+  border-radius: 30px;
+  font-weight: 700;
+  color: #FFF;
+  border: 2px solid #FFF;
+  background-color: #00312E;
+  cursor: pointer;
+}
+body .homeScreen .welcome .forgotPass {
+  padding: 10px 0;
+  cursor: pointer;
+}
+body .homeScreen #formRegister {
+  padding: 20px;
+  width: 40vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 0 10px 10px 0;
+}
+body .homeScreen #formRegister h2 {
+  font-size: 2em;
+  padding: 10px;
+}
+body .homeScreen #formRegister p {
+  margin: 0 0 20px 0;
+}
+body .homeScreen #formRegister .inputGroup {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 80%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #b4b4b4;
+  margin: 5px;
+}
+body .homeScreen #formRegister .inputGroup img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+}
+body .homeScreen #formRegister .inputGroup input {
+  background-color: #b4b4b4;
+  width: 100%;
+  padding-left: 5px;
+  border: none;
+  outline: none;
+}
+body .homeScreen #formRegister #btnRegister {
+  margin-top: 10px;
+  width: 80%;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-weight: 600;
+  background-color: #00312E;
+  color: #FFF;
+  align-self: center;
+  cursor: pointer;
+  outline: none;
+}
+body #formForgotPass {
+  padding: 20px;
+  width: 40vw;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 0 10px 10px 0;
+}
+body #formForgotPass h2 {
+  font-size: 2em;
+  padding: 10px;
+}
+body #formForgotPass p {
+  margin: 0 0 20px 0;
+}
+body #formForgotPass .inputGroup {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 80%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #b4b4b4;
+  margin: 5px;
+}
+body #formForgotPass .inputGroup img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+}
+body #formForgotPass .inputGroup input {
+  background-color: #b4b4b4;
+  width: 100%;
+  padding-left: 5px;
+  border: none;
+  outline: none;
+}
+body #formForgotPass #btnRecoverPassword {
+  margin-top: 10px;
+  width: 80%;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-weight: 600;
+  background-color: #00312E;
+  color: #FFF;
+  align-self: center;
+  cursor: pointer;
+  outline: none;
+}
+body #formLogin {
+  padding: 20px;
+  width: 40vw;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 0 10px 10px 0;
+}
+body #formLogin h2 {
+  font-size: 2em;
+  padding: 10px;
+}
+body #formLogin p {
+  margin: 0 0 20px 0;
+}
+body #formLogin .inputGroup {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 80%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #b4b4b4;
+  margin: 5px;
+}
+body #formLogin .inputGroup img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+}
+body #formLogin .inputGroup input {
+  background-color: #b4b4b4;
+  width: 100%;
+  padding-left: 5px;
+  border: none;
+  outline: none;
+}
+body #formLogin #btnLogin {
+  margin-top: 10px;
+  width: 80%;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-weight: 600;
+  background-color: #00312E;
+  color: #FFF;
+  align-self: center;
+  cursor: pointer;
+  outline: none;
+}
+
+/*# sourceMappingURL=styles.css.map */

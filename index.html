@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./src/styles/styles.css">
+    </head>
+    <body>
+        <main class="container">
+            <section class="homeScreen">
+                <section class="welcome">
+                    <h1>SmileSync</h1>
+                    <h2>Bem-vindo de volta</h2>
+                    <p>Acesse sua conta</p>
+                    <button type="button" id="btnToEnter">ENTRAR</button>
+                    <div class="forgotPass" id="forgotPassWelcome">Esqueci minha senha</div>
+                </section>
+                <form id="formRegister">
+                    <h2>Crie sua conta</h2>
+                    <span id="formRegisterFeedback"></span>
+                    <div class="inputGroup" id="registerName">
+                        <img src="./src/assets/user.png" alt="">
+                        <input type="text" id="inputRegisterName" placeholder="Digite seu nome completo" value="">
+                    </div>
+                    <span id="nameFeedback"></span>
+                    <div class="inputGroup" id="registerEmail">
+                        <img src="./src/assets/mail.png" alt="">
+                        <input type="email" id="inputRegisterEmail" placeholder="Digite seu email" value="">
+                    </div>
+                    <span id="emailFeedback"></span>
+                    <div class="inputGroup" id="registerPass">
+                        <img src="./src/assets/key.png" alt="">
+                        <input type="password" id="inputRegisterPass" class="pass" placeholder="Mínimo 8 caracteres" value="">
+                    </div>
+                    <span id="passFeedback"></span>
+                    <div class="inputGroup" id="registerRepeatPass">
+                        <img src="./src/assets/key.png" alt="">
+                        <input type="password" id="inputRegisterRepeatPass" class="pass" placeholder="Repetir senha" value="">
+                    </div>
+                    <span id="passRepeatFeedback"></span>
+                    <button type="submit" id="btnRegister">REGISTRAR</button>
+                </form>
+            </section>
+            <form id="formForgotPass">
+                <h2>Recuperar Senha</h2>
+                <span id="formForgottenFeedback"></span>
+                <div class="inputGroup" id="forgottenEmail">
+                    <img src="./src/assets/mail.png" alt="">
+                    <input type="email" id="inputForgottenEmail" placeholder="Digite o email" value="">
+                </div>
+                <span id="forgottenEmailFeedback"></span>
+                <div class="inputGroup" id="forgottenPass">
+                    <img src="./src/assets/key.png" alt="">
+                    <input type="password" id="inputForgottenPass" class="pass" placeholder="Nova senha" value="">
+                </div>
+                <span id="forgottenPassFeedback"></span>
+                <div class="inputGroup" id="forgottenRepeatPass">
+                    <img src="./src/assets/key.png" alt="">
+                    <input type="password" id="inputForgottenRepeatPass" class="pass" placeholder="Repetir nova senha" value="">
+                </div>
+                <span id="forgottenPassRepeatFeedback"></span>
+                <button type="submit" id="btnRecoverPassword" class="btnRecoverPassword">ALTERAR</button>
+                <span class="previous">Voltar</span>
+            </form>
+            <form id="formLogin">
+                <h2>ACESSAR CONTA</h2>
+                <span id="formLoginFeedback"></span>
+                <div class="inputGroup" id="LoginEmail">
+                    <img src="./src/assets/mail.png" alt="">
+                    <input type="email" id="inputLoginEmail" placeholder="Digite o email" value="">
+                </div>
+                <span id="LoginEmailFeedback"></span>
+                <div class="inputGroup" id="LoginPass">
+                    <img src="./src/assets/key.png" alt="">
+                    <input type="password" id="inputLoginPass" class="pass" placeholder="Digite sua senha" value="">
+                </div>
+                <button type="submit" id="btnLogin" class="btnLogin">ENTRAR</button>
+                <div class="forgotPass" id="forgotPassLogin">Esqueci minha senha</div>
+            </form>
+        </form>
+    </div>
+    <script src="./src/controller/controller.js" type="module"></script>
+</body>
+</html>
