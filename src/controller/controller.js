@@ -3,8 +3,9 @@ import { registerAdmin } from "../model/registerAdmin/registerAdmin.js";
 import { validateRegistrationFields } from "../model/registerAdmin/validateRegistrationFields.js";
 import { resetPassword } from "../model/resetPassword/resetPassword.js";
 import { validateResetPassword } from "../model/resetPassword/validateResetPassword.js";
+import { resetForms } from "../utils/resetForms.js";
 import { displayControl } from "../view/displayControl.js";
-import { userRegistrationFlowFeedback } from "../view/handlingFeedback.js";
+import { renderFeedback, hideErrorOnInput,userRegistrationFlowFeedback } from "../view/handlingFeedback.js";
 
 let adminList = JSON.parse(window.localStorage.getItem("adminList")) || [];
 console.log(adminList);
@@ -48,7 +49,6 @@ btnRecoverPassword.addEventListener("click", (e) => {
   if (resultValidateFieldsForgottenPass != +200) {
     userRegistrationFlowFeedback(resultValidateFieldsForgottenPass);
   } else {
-    console.log("VALIDAÇÃO RESET OK");
     resetPassword(email, pass);
   }
 });
@@ -63,7 +63,14 @@ btnLogin.addEventListener("click", (e) => {
   const pass = loginPass.value;
 
   const validLogin = validateLogin(email, pass);
-  console.log(validLogin);
+  if (validLogin) {
+    displayControl("#formLogin", "#pacientes");
+  } else {
+    
+    renderFeedback("#formLoginFeedback", "Dados de acesso incorretos");
+    hideErrorOnInput("#inputLoginEmail", "#formLoginFeedback");
+    hideErrorOnInput("#inputLoginPass", "#formLoginFeedback");
+  }
 });
 
 const forgotPass = document.querySelectorAll(".forgotPass");
@@ -72,16 +79,13 @@ forgotPass.forEach((linkRecoverPass) => {
   linkRecoverPass.addEventListener("click", (e) => {
     const origin = e.target && e.target.getAttribute("id");
 
-    console.log(origin);
     if (origin === "forgotPassWelcome") {
       document.querySelector("#formForgotPass").reset();
       displayControl(".homeScreen", "#formForgotPass");
-      console.log(document.querySelector("#homeScreen"));
     }
     if (origin === "forgotPassLogin") {
       document.querySelector("#formForgotPass").reset();
       displayControl("#formLogin", "#formForgotPass");
-      // document.querySelector("#formForgotPass").reset()
     }
   });
 });
@@ -90,4 +94,10 @@ previous.addEventListener("click", () => {
   displayControl("#formLogin", ".homeScreen");
   displayControl("#formForgotPass", ".homeScreen");
   displayControl("#formLogin", ".homeScreen");
+  resetForms(["#formLogin", "#formForgotPass", "#formLogin"]);
+});
+
+const btnToEnter = document.querySelector("#btnToEnter");
+btnToEnter.addEventListener("click", () => {
+  displayControl(".homeScreen", "#formLogin");
 });

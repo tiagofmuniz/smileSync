@@ -218,5 +218,8 @@ body #formLogin #btnLogin {
   cursor: pointer;
   outline: none;
 }
+body #pacientes {
+  display: none;
+}
 
 /*# sourceMappingURL=styles.css.map */

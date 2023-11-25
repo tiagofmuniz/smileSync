@@ -8,6 +8,6 @@ export function registerAdmin(name, email, pass) {
   adminList.push(newAdmin);
   window.localStorage.setItem("adminList", JSON.stringify(adminList));
 
-  redirectWithCountdown(".homeScreen", "#teste", "#formRegisterFeedback", "Usuário cadastrado com sucesso <br>Você será redirecionado para página de login em:");
+  redirectWithCountdown(".homeScreen", "#formLogin", "#formRegisterFeedback", "Usuário cadastrado com sucesso <br>Você será redirecionado para página de login em:");
 }
 

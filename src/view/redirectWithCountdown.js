@@ -1,6 +1,6 @@
 import { displayControl } from "./displayControl.js";
 export function redirectWithCountdown(fromSelector, toSelector, messageSelector, message) {
-  document.querySelector(toSelector).reset()
+  // document.querySelector(toSelector).reset()
 
 
   const messageElement = document.querySelector(messageSelector);
