@@ -1,4 +1,11 @@
-export function initModalControl(adminList) {
+import { formatBrazilianDate } from "../../utils/formatBrazilianDate.js";
+import { generateId } from "../../utils/generateId.js";
+import { registerPatient } from "./addRegister.js";
+
+export function initModalControl() {
+  let adminList = JSON.parse(window.localStorage.getItem("adminList")) || [];
+  // console.log(adminList);
+
   const openDialogBtn = document.getElementById("openDialogBtn");
   const clientRegistrationDialog = document.getElementById("clientRegistrationDialog");
   const clearDialogBtn = document.getElementById("clearDialogBtn");
@@ -31,11 +38,15 @@ export function initModalControl(adminList) {
   function listDentists(adminList) {
     const dentistSelect = document.getElementById("dentist");
 
+    // Limpar a lista existente
+    dentistSelect.innerHTML = "";
+
     if (Array.isArray(adminList)) {
       adminList.forEach((dentist) => {
         const option = document.createElement("option");
-        option.value = dentist.id;
+        option.value = dentist.name;
         option.text = dentist.name;
+        option.dataset.IdDentist = dentist.id;
         dentistSelect.appendChild(option);
       });
     } else {
@@ -64,19 +75,25 @@ export function initModalControl(adminList) {
     const addressComponents = [street, number, complement, neighborhood, city, cep];
     const nonEmptyComponents = addressComponents.filter((component) => component);
     const fullAddress = nonEmptyComponents.length > 0 ? nonEmptyComponents.join(", ") : "";
-
-    const clientAppointmentDate = document.querySelector("#clientAppointmentDate").value;
+    const clientAppointmentDate = formatBrazilianDate(document.querySelector("#clientAppointmentDate").value);
     const clientAppointmentTime = document.querySelector("#clientAppointmentTime").value;
     const dentist = document.querySelector("#dentist").value;
+    console.log(dentist)
     const observation = document.querySelector("#observation").value;
 
-    console.log(fullAddress);
-    console.log(clientName);
-    console.log(clientPhone);
-    console.log(clientAppointmentDate);
-    console.log(clientAppointmentTime);
-    console.log(dentist);
-    console.log(observation);
+    const patientsData = {
+      id: generateId(),
+      name: clientName,
+      phone: clientPhone,
+      address: fullAddress,
+      appointmentDate: clientAppointmentDate,
+      appointmentTime: clientAppointmentTime,
+      dentist: dentist,
+      observation: observation,
+    };
+
+    console.log(patientsData);
+    registerPatient(patientsData);
 
     clientRegistrationDialog.close();
     clearFormFields();

@@ -1,3 +1,4 @@
+// Importações
 import { validateLogin } from "../model/auth/validateLogin.js";
 import { fillFormWithDummyData } from "../model/patientControll/dummyData.js";
 import { initModalControl } from "../model/patientControll/initModalControl.js";
@@ -8,108 +9,125 @@ import { validateResetPassword } from "../model/resetPassword/validateResetPassw
 import { resetForms } from "../utils/resetForms.js";
 import { displayControl } from "../view/displayControl.js";
 import { userRegistrationFlowFeedback } from "../view/handlingFeedback.js";
+import { renderPatientsTable } from "../view/renderPatientsTable/renderPatientsTable.js";
 
-// console.log(adminList);
-// console.log(patientList);
-// window.localStorage.clear()
-///FLUXO REGISTRAR USUÁRIOS
+// Variáveis globais
+let adminList = JSON.parse(window.localStorage.getItem("adminList")) || []
+let patientList = JSON.parse(window.localStorage.getItem("patientList")) || [];
+console.log(patientList)
 
+  // window.localStorage.removeItem('patientList')
+
+
+// Configuração inicial
+document.addEventListener("DOMContentLoaded", setup);
+
+// Registro de usuários
 const btnRegisterEl = document.querySelector("#btnRegister");
-btnRegisterEl.addEventListener("click", (e) => {
-  e.preventDefault();
-  const inputRegisterName = document.querySelector("#inputRegisterName");
-  const inputRegisterEmail = document.querySelector("#inputRegisterEmail");
-  const inputRegisterPass = document.querySelector("#inputRegisterPass");
-  const inputRegisterPassRepeat = document.querySelector("#inputRegisterRepeatPass");
+btnRegisterEl.addEventListener("click", handleRegister);
 
-  const name = inputRegisterName.value;
-  const email = inputRegisterEmail.value;
-  const pass = inputRegisterPass.value;
-  const passRepeat = inputRegisterPassRepeat.value;
+// Recuperação de senha
+const btnRecoverPassword = document.querySelector(".btnRecoverPassword");
+btnRecoverPassword.addEventListener("click", handleRecoverPassword);
+
+// Login
+const btnLogin = document.querySelector("#btnLogin");
+btnLogin.addEventListener("click", handleLogin);
+
+// Links "Esqueceu a senha"
+const forgotPass = document.querySelectorAll(".forgotPass");
+forgotPass.forEach((linkRecoverPass) => {
+  linkRecoverPass.addEventListener("click", handleForgotPasswordLink);
+});
+
+// Botão "Voltar"
+const previous = document.querySelectorAll(".previous");
+previous.forEach((previousLink) => {
+  previousLink.addEventListener("click", handlePrevious);
+});
+
+// Botão "Entrar"
+const btnToEnter = document.querySelector("#btnToEnter");
+btnToEnter.addEventListener("click", handleToEnter);
+
+// Funções
+function setup() {
+  // document.querySelector("#openDialogBtn").click();
+  document.querySelector("#btnToEnter").click();
+  document.querySelector("#inputLoginEmail").value = "teste@teste.com"
+  document.querySelector("#inputLoginPass").value = "123456789"
+  document.querySelector("#btnLogin").click();
+  document.querySelector("#openDialogBtn").click()
+  initModalControl(patientList);
+  fillFormWithDummyData();
+  renderPatientsTable(patientList);
+
+}
+
+function handleRegister(e) {
+  e.preventDefault();
+  const name = document.querySelector("#inputRegisterName").value;
+  const email = document.querySelector("#inputRegisterEmail").value;
+  const pass = document.querySelector("#inputRegisterPass").value;
+  const passRepeat = document.querySelector("#inputRegisterRepeatPass").value;
 
   const resultValidateFields = validateRegistrationFields(name, email, pass, passRepeat);
-  if (resultValidateFields != +200) {
+  if (resultValidateFields !== 200) {
     userRegistrationFlowFeedback(resultValidateFields);
   } else {
     registerAdmin(name, email, pass);
   }
-});
+}
 
-const btnRecoverPassword = document.querySelector(".btnRecoverPassword");
-btnRecoverPassword.addEventListener("click", (e) => {
+function handleRecoverPassword(e) {
   e.preventDefault();
-  const inputForgottenEmail = document.querySelector("#inputForgottenEmail");
-  const inputForgottenPass = document.querySelector("#inputForgottenPass");
-  const inputForgottenRepeatPass = document.querySelector("#inputForgottenRepeatPass");
-
-  const email = inputForgottenEmail.value;
-  const pass = inputForgottenPass.value;
-  const passRepeat = inputForgottenRepeatPass.value;
+  const email = document.querySelector("#inputForgottenEmail").value;
+  const pass = document.querySelector("#inputForgottenPass").value;
+  const passRepeat = document.querySelector("#inputForgottenRepeatPass").value;
 
   const resultValidateFieldsForgottenPass = validateResetPassword(email, pass, passRepeat);
 
-  if (resultValidateFieldsForgottenPass != +200) {
+  if (resultValidateFieldsForgottenPass !== 200) {
     userRegistrationFlowFeedback(resultValidateFieldsForgottenPass);
   } else {
     resetPassword(email, pass);
+
   }
-});
+}
 
-const btnLogin = document.querySelector("#btnLogin");
-btnLogin.addEventListener("click", (e) => {
+function handleLogin(e) {
   e.preventDefault();
-  const loginEmail = document.querySelector("#inputLoginEmail");
-  const loginPass = document.querySelector("#inputLoginPass");
-
-  const email = loginEmail.value;
-  const pass = loginPass.value;
+  const email = document.querySelector("#inputLoginEmail").value;
+  const pass = document.querySelector("#inputLoginPass").value;
 
   const validLogin = validateLogin(email, pass);
-  console.log(validLogin);
+
   if (validLogin) {
     displayControl("#formLogin", "#patientControl");
   } else {
+    // Lógica para tratamento de login inválido
   }
-});
+}
 
-const forgotPass = document.querySelectorAll(".forgotPass");
+function handleForgotPasswordLink(e) {
+  const origin = e.target && e.target.getAttribute("id");
 
-forgotPass.forEach((linkRecoverPass) => {
-  linkRecoverPass.addEventListener("click", (e) => {
-    const origin = e.target && e.target.getAttribute("id");
+  if (origin === "forgotPassWelcome" || origin === "forgotPassLogin") {
+    document.querySelector("#formForgotPass").reset();
+    displayControl(`${origin === "forgotPassWelcome" ? ".homeScreen" : "#formLogin"}`, "#formForgotPass");
+  }
+}
 
-    if (origin === "forgotPassWelcome") {
-      document.querySelector("#formForgotPass").reset();
-      displayControl(".homeScreen", "#formForgotPass");
-    }
-    if (origin === "forgotPassLogin") {
-      document.querySelector("#formForgotPass").reset();
-      displayControl("#formLogin", "#formForgotPass");
-    }
-  });
-});
-const previous = document.querySelector(".previous");
-previous.addEventListener("click", () => {
-  displayControl("#formLogin", ".homeScreen");
-  displayControl("#formForgotPass", ".homeScreen");
-  displayControl("#formLogin", ".homeScreen");
-  resetForms(["#formLogin", "#formForgotPass", "#formLogin"]);
-});
+function handlePrevious(e) {
+  const origin = e.target && e.target.getAttribute("id");
 
-const btnToEnter = document.querySelector("#btnToEnter");
-btnToEnter.addEventListener("click", () => {
+  if (origin === "previousReset" || origin === "previousLogin") {
+    console.log(origin);
+    displayControl(`${origin === "previousReset" ? "#formForgotPass" : "#formLogin"}`, ".homeScreen");
+    resetForms(["#formLogin", "#formForgotPass", "#formRegister"]);
+  }
+}
+
+function handleToEnter() {
   displayControl(".homeScreen", "#formLogin");
-});
-
-// (function hiddenAll() {
-//   document.querySelector(".homeScreen").style.display = "none";
-//   document.querySelector("#formForgotPass").style.display = "none";
-//   document.querySelector("#formLogin").style.display = "none";
-// })();
-let patientList = JSON.parse(window.localStorage.getItem("patientList")) || [];
-document.addEventListener("DOMContentLoaded", () => {
-  let adminList = JSON.parse(window.localStorage.getItem("adminList")) || [];
-  document.querySelector("#openDialogBtn").click();
-  initModalControl(adminList);
-  fillFormWithDummyData();
-});
+}

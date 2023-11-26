@@ -6,7 +6,7 @@
 
 body {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url(../assets/bg.jpg);
   background-size: cover;
   background-position: center;
@@ -224,40 +224,34 @@ body #formLogin #btnLogin {
 }
 body #patientControl {
   display: none;
+  flex-direction: column;
 }
 body #patientControl #addItem {
   cursor: pointer;
   background-color: red;
 }
-body #patientControl table {
-  border-collapse: collapse;
+body #patientControl #pacientesTable {
   width: 100%;
+  border-collapse: collapse;
   margin-top: 20px;
 }
-body #patientControl table th,
-body #patientControl table td {
+body #patientControl #pacientesTable th,
+body #patientControl #pacientesTable td {
   border: 1px solid #ddd;
-  padding: 10px;
+  padding: 8px;
   text-align: left;
 }
-body #patientControl table th {
+body #patientControl #pacientesTable th {
   background-color: #f2f2f2;
 }
-body #patientControl table tbody tr:hover {
+body #patientControl #pacientesTable tbody tr:hover {
   background-color: #f5f5f5;
 }
-body #patientControl table button {
+body #patientControl .tableIcon {
+  width: 20px;
+  height: 20px;
   cursor: pointer;
-  padding: 5px 10px;
-  margin-right: 5px;
-  background-color: #4caf50;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  font-size: 14px;
-}
-body #patientControl table button:hover {
-  background-color: #45a049;
+  margin: 5px;
 }
 body #patientControl dialog {
   border: 1px solid #ccc;

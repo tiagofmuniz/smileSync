@@ -9,7 +9,7 @@ $rosebackground: #FDC5C6;
 
 body {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-image: url(../assets/bg.jpg);
     background-size: cover;
     background-position: center;
@@ -279,20 +279,25 @@ body {
 
     #patientControl {
         display: none;
+        flex-direction: column;
+
         #addItem {
             cursor: pointer;
             background-color: red;
         }
 
-        table {
-            border-collapse: collapse;
+        // style.scss
+
+        // Estilo básico da tabela
+        #pacientesTable {
             width: 100%;
+            border-collapse: collapse;
             margin-top: 20px;
 
             th,
             td {
                 border: 1px solid #ddd;
-                padding: 10px;
+                padding: 8px;
                 text-align: left;
             }
 
@@ -304,21 +309,17 @@ body {
                 background-color: #f5f5f5;
             }
 
-            // Estilos dos botões
-            button {
-                cursor: pointer;
-                padding: 5px 10px;
-                margin-right: 5px;
-                background-color: #4caf50;
-                color: #fff;
-                border: none;
-                border-radius: 3px;
-                font-size: 14px;
+            // Estilo para as células de ações (ícones)
+       
+        }
 
-                &:hover {
-                    background-color: #45a049;
-                }
-            }
+        // Estilo para os ícones
+        .tableIcon{
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            // padding: 3px;
+            margin:5px
         }
 
         dialog {
