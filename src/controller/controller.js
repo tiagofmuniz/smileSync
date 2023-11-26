@@ -1,14 +1,16 @@
 import { validateLogin } from "../model/auth/validateLogin.js";
+import { fillFormWithDummyData } from "../model/patientControll/dummyData.js";
+import { initModalControl } from "../model/patientControll/initModalControl.js";
 import { registerAdmin } from "../model/registerAdmin/registerAdmin.js";
 import { validateRegistrationFields } from "../model/registerAdmin/validateRegistrationFields.js";
 import { resetPassword } from "../model/resetPassword/resetPassword.js";
 import { validateResetPassword } from "../model/resetPassword/validateResetPassword.js";
 import { resetForms } from "../utils/resetForms.js";
 import { displayControl } from "../view/displayControl.js";
-import { renderFeedback, hideErrorOnInput,userRegistrationFlowFeedback } from "../view/handlingFeedback.js";
+import { userRegistrationFlowFeedback } from "../view/handlingFeedback.js";
 
-let adminList = JSON.parse(window.localStorage.getItem("adminList")) || [];
-console.log(adminList);
+// console.log(adminList);
+// console.log(patientList);
 // window.localStorage.clear()
 ///FLUXO REGISTRAR USUÁRIOS
 
@@ -63,13 +65,10 @@ btnLogin.addEventListener("click", (e) => {
   const pass = loginPass.value;
 
   const validLogin = validateLogin(email, pass);
+  console.log(validLogin);
   if (validLogin) {
-    displayControl("#formLogin", "#pacientes");
+    displayControl("#formLogin", "#patientControl");
   } else {
-    
-    renderFeedback("#formLoginFeedback", "Dados de acesso incorretos");
-    hideErrorOnInput("#inputLoginEmail", "#formLoginFeedback");
-    hideErrorOnInput("#inputLoginPass", "#formLoginFeedback");
   }
 });
 
@@ -100,4 +99,17 @@ previous.addEventListener("click", () => {
 const btnToEnter = document.querySelector("#btnToEnter");
 btnToEnter.addEventListener("click", () => {
   displayControl(".homeScreen", "#formLogin");
+});
+
+// (function hiddenAll() {
+//   document.querySelector(".homeScreen").style.display = "none";
+//   document.querySelector("#formForgotPass").style.display = "none";
+//   document.querySelector("#formLogin").style.display = "none";
+// })();
+let patientList = JSON.parse(window.localStorage.getItem("patientList")) || [];
+document.addEventListener("DOMContentLoaded", () => {
+  let adminList = JSON.parse(window.localStorage.getItem("adminList")) || [];
+  document.querySelector("#openDialogBtn").click();
+  initModalControl(adminList);
+  fillFormWithDummyData();
 });

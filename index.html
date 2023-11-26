@@ -11,6 +11,7 @@
             <section class="homeScreen">
                 <section class="welcome">
                     <h1>SmileSync</h1>
+                    <span class="slogan">Seu sorriso, nossa paixão.</span>
                     <h2>Bem-vindo de volta</h2>
                     <p>Acesse sua conta</p>
                     <button type="button" id="btnToEnter">ENTRAR</button>
@@ -64,7 +65,8 @@
                 <span class="previous">Voltar</span>
             </form>
             <form id="formLogin">
-                <h2>ACESSAR CONTA</h2>
+                <h2>Acessar Conta</h2>
+                <p>Seu sorriso, nossa paixão.</p>
                 <span id="formLoginFeedback"></span>
                 <div class="inputGroup" id="LoginEmail">
                     <img src="./src/assets/mail.png" alt="">
@@ -78,7 +80,71 @@
                 <button type="submit" id="btnLogin" class="btnLogin">ENTRAR</button>
                 <div class="forgotPass" id="forgotPassLogin">Esqueci minha senha</div>
             </form>
-            <section id="pacientes">PACIENTES</section>
+            <section id="patientControl">
+                <table id="pacientesTable">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                            <th>Endereço</th>
+                            <th>Data da Consulta</th>
+                            <th>Dentista Responsável</th>
+                            <th>Observação</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <button id="openDialogBtn">Adicionar cadastro</button>
+                <dialog id="clientRegistrationDialog">
+                    <form id="clientRegistrationForm">
+                        <label for="clientName">Nome:</label>
+                        <input type="text" id="clientName" name="name" >
+                        <label for="clientPhone">Número de Telefone:</label>
+                        <input type="text" id="clientPhone" name="phoneNumber"  placeholder="">
+                        
+                        <div>
+                            <div>
+                                <label for="street">Rua:</label>
+                                <input type="text" id="street" name="street" >
+                                <label for="number">Número:</label>
+                                <input type="text" id="number" name="number" >
+                            </div>
+                            <div>
+                                <div>
+                                    <label for="complement">Complemento:</label>
+                                    <input type="text" id="complement" name="complement" >
+                                    <label for="neighborhood">Bairro:</label>
+                                    <input type="text" id="neighborhood" name="neighborhood" >
+                                </div>
+                                <label for="city">Cidade:</label>
+                                <input type="text" id="city" name="city" >
+                                <label for="cep">CEP:</label>
+                                <input type="text" id="cep" name="cep" >
+                            </div>
+                        </div>
+                        <div class="date">
+                            <div>
+                                <label for="clientAppointmentDate">Próxima consulta Date:</label>
+                                <input type="date" id="clientAppointmentDate" name="appointmentDate" >
+                            </div>
+                            <div>
+                                <label for="clientAppointmentTime">Hora da Consulta:</label>
+                                <input type="time" id="clientAppointmentTime" name="appointmentTime" >
+                            </div>
+                        </div>
+                        <div class="dentistSelect">
+                            <label for="dentist">Dentista Responsável:</label>
+                            <select id="dentist" name="dentist" ></select>
+                        </div>
+                        <label for="observation">Observações:</label>
+                        <textarea id="observation" name="observation" rows="4"></textarea>
+                        <button type="button" id="clearDialogBtn">Limpar</button>
+                        <button type="submit">Salvar</button>
+                        <button type="button" id="closeDialogBtn">Fechar</button>
+                    </form>
+                </dialog>
+            </section>
         </div>
         <script src="./src/controller/controller.js" type="module"></script>
     </body>

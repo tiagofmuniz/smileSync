@@ -1,6 +1,6 @@
 export function validateResetPassword(email, pass, repeatPass) {
   let adminList = JSON.parse(window.localStorage.getItem("adminList")) || [];
-console.log(adminList)
+// console.log(adminList)
   function isValidEmail(value) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(value);
