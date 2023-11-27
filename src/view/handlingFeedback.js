@@ -1,5 +1,3 @@
-
-
 export function renderFeedback(feedbackContainerId, message) {
   document.querySelector(feedbackContainerId).innerHTML = message;
 }
@@ -16,7 +14,6 @@ export function hideErrorOnInput(triggerField, targetClear) {
 }
 
 export function userRegistrationFlowFeedback(resultValidateFields) {
-  // console.log(resultValidateFields);
   resultValidateFields.forEach((feedback) => {
     if (!feedback.isValid) {
       renderFeedback(feedback.feedbackContainer, feedback.message);
@@ -24,5 +21,3 @@ export function userRegistrationFlowFeedback(resultValidateFields) {
     }
   });
 }
-
-

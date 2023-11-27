@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   border: 0;
@@ -5,14 +6,19 @@
 }
 
 body {
+  font-smooth: none;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url(../assets/bg.jpg);
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
-  padding-left: 20px;
+  justify-content: center;
+  padding: 50px;
+}
+body button {
+  text-align: center;
 }
 body .previous {
   padding: 10px;
@@ -224,67 +230,218 @@ body #formLogin #btnLogin {
 }
 body #patientControl {
   display: none;
+  flex-direction: column;
+  align-items: center;
+  min-width: 90vw;
 }
-body #patientControl #addItem {
+body #patientControl #openDialogBtn {
+  background-color: rgba(52, 152, 219, 0.8); /* Azul escuro com transparência */
+  color: #ecf0f1; /* Cor do texto clara */
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  background-color: red;
+  width: 300px;
+  transition: background-color 0.3s ease;
 }
-body #patientControl table {
-  border-collapse: collapse;
+body #patientControl #openDialogBtn:hover {
+  background-color: rgba(41, 128, 185, 0.8); /* Azul escuro mais escuro no hover */
+}
+body #patientControl #patientsTable {
   width: 100%;
+}
+body #patientControl #patientsTable body {
+  margin: 0;
+  background: url("path/to/your/background-image.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+body #patientControl #patientsTable .accordion {
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 20px;
+  width: 90%;
+  max-width: 1000px;
+  margin: 20px auto;
+  color: #ecf0f1;
+}
+body #patientControl #patientsTable .accordion .title {
+  display: block;
+  width: 100%;
+}
+body #patientControl #patientsTable .accordion .accordion-item {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 5px;
+  border: 1px solid #333;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+body #patientControl #patientsTable .accordion .accordion-item .frontContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  gap: 10px;
+  border-bottom: 1px solid #444;
+  transition: background-color 0.3s ease;
+}
+body #patientControl #patientsTable .accordion .accordion-item .frontContainer img {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #666;
+  border-radius: 50%;
+}
+body #patientControl #patientsTable .accordion .accordion-item .frontContainer .infoContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+body #patientControl #patientsTable .accordion .accordion-item .frontContainer .infoContainer .infoItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 50%;
+}
+body #patientControl #patientsTable .accordion .accordion-item .frontContainer .infoContainer .infoItem span {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ecf0f1;
+  margin-top: 3px;
+}
+body #patientControl #patientsTable .accordion .accordion-item .frontContainer .actions {
+  display: flex;
+  gap: 8px;
+}
+body #patientControl #patientsTable .accordion .accordion-item .frontContainer .actions .iconActions {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+body #patientControl #patientsTable .accordion .accordion-item .frontContainer .actions .iconActions:hover {
+  filter: brightness(1.2);
+}
+body #patientControl #patientsTable .accordion .accordion-item .item-input {
+  display: none;
+}
+body #patientControl #patientsTable .accordion .accordion-item .item-input:checked ~ .item-label {
+  color: #3498db;
+}
+body #patientControl #patientsTable .accordion .accordion-item .item-input:checked ~ .item-content {
+  max-height: 100vh;
+  padding: 10px;
+}
+body #patientControl #patientsTable .accordion .accordion-item .item-label {
+  cursor: pointer;
+  text-align: left;
+  display: block;
+  justify-self: center;
+  font-size: 16px;
+  color: #ecf0f1;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-bottom: 1px solid #444;
+  font-weight: bold;
+}
+body #patientControl #patientsTable .accordion .accordion-item .item-content {
+  transition: all 0.3s ease-in-out;
+  max-height: 0;
+  padding: 0 10px;
+  overflow: hidden;
+  color: #ecf0f1;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+body #patientControl #patientsTable .accordion .accordion-item .addressContainer,
+body #patientControl #patientsTable .accordion .accordion-item .observationContainer {
+  font-size: 14px;
+  margin-top: 5px;
+}
+body #clientRegistrationDialog {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 20px;
+  border-radius: 10px;
+  width: 60vw;
+  margin: 20px auto;
+}
+body #clientRegistrationDialog .buttons #clearDialogBtn {
+  background-color: #e74c3c;
+  /* Vermelho - Limpar */
+}
+body #clientRegistrationDialog .buttons #clearDialogBtn:hover {
+  background-color: #c0392b;
+}
+body #clientRegistrationDialog .buttons #btnSalvarNewRegister {
+  background-color: #27ae60;
+  /* Verde - Salvar */
+}
+body #clientRegistrationDialog .buttons #btnSalvarNewRegister:hover {
+  background-color: #219b56;
+}
+body #clientRegistrationDialog .buttons #closeDialogBtn {
+  background-color: #7f8c8d;
+  /* Cinza - Fechar */
+}
+body #clientRegistrationDialog .buttons #closeDialogBtn:hover {
+  background-color: #626d71;
+}
+body #clientRegistrationDialog form {
+  display: flex;
+  flex-direction: column;
+}
+body #clientRegistrationDialog form .userGroup,
+body #clientRegistrationDialog form .address,
+body #clientRegistrationDialog form .consult {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+body #clientRegistrationDialog form .addressGroup {
+  width: 100%;
+}
+body #clientRegistrationDialog form label {
+  margin-bottom: 5px;
+}
+body #clientRegistrationDialog form .groupItem {
+  flex: 1;
+  margin-right: 10px;
+}
+body #clientRegistrationDialog form .groupItem label {
+  display: block;
+}
+body #clientRegistrationDialog form .groupItem input,
+body #clientRegistrationDialog form .groupItem select,
+body #clientRegistrationDialog form .groupItem textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #34495e;
+  border-radius: 5px;
+  background-color: #34495e;
+  color: #ecf0f1;
+  box-sizing: border-box;
+  outline: none;
+}
+body #clientRegistrationDialog form .consult .groupItem {
+  flex: 1;
+}
+body #clientRegistrationDialog form .buttons {
+  display: flex;
+  justify-content: center;
   margin-top: 20px;
 }
-body #patientControl table th,
-body #patientControl table td {
-  border: 1px solid #ddd;
+body #clientRegistrationDialog form .buttons button {
+  background-color: #3498db;
+  color: #ecf0f1;
   padding: 10px;
-  text-align: left;
-}
-body #patientControl table th {
-  background-color: #f2f2f2;
-}
-body #patientControl table tbody tr:hover {
-  background-color: #f5f5f5;
-}
-body #patientControl table button {
-  cursor: pointer;
-  padding: 5px 10px;
-  margin-right: 5px;
-  background-color: #4caf50;
-  color: #fff;
+  margin: 0 5px;
   border: none;
-  border-radius: 3px;
-  font-size: 14px;
-}
-body #patientControl table button:hover {
-  background-color: #45a049;
-}
-body #patientControl dialog {
-  border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 20px;
-  background-color: #fff;
-}
-body #patientControl label {
-  display: block;
-  margin-bottom: 8px;
-}
-body #patientControl input {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 16px;
-  box-sizing: border-box;
-}
-body #patientControl button {
-  padding: 10px;
-  background-color: #4caf50;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
   cursor: pointer;
+  min-width: 10vw;
 }
-body #patientControl button:hover {
-  background-color: #45a049;
+body #clientRegistrationDialog form .buttons button:hover {
+  background-color: #2980b9;
 }
 
 /*# sourceMappingURL=styles.css.map */
