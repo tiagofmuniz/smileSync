@@ -15,7 +15,7 @@
 
 > ## Como usar
 
-1. Faça o clone deste repositório: https://github.com/seu-usuario/consultorio-odontologico.git
+1. Faça o clone deste repositório: https://github.com/tiagofmuniz/smileSync.git
 2. Abra o arquivo `index.html` em seu navegador.
 3. Utilize o formulário para adicionar novos registros de pacientes, agendar consultas e incluir observações.
 4. Os registros são armazenados localmente no navegador usando Local Storage.
