@@ -1,20 +1,26 @@
 // sortingHelpers.js
 
 export function addSortIconsToColumns() {
-    const headerRow = document.getElementById("pacientesTable").getElementsByTagName("thead")[0].getElementsByTagName("tr")[0];
-  
-    // Adicionar ícone de ordenação à coluna de Nome (índice 0)
-    const nameColumn = headerRow.getElementsByTagName("th")[0];
-    nameColumn.appendChild(createSortIcon(0));
-  
-    // Adicionar ícone de ordenação à coluna de Data da Consulta (índice 3)
-    const dateColumn = headerRow.getElementsByTagName("th")[3];
-    dateColumn.appendChild(createSortIcon(3));
-  
-    // Adicionar ícone de ordenação à coluna de Dentista Responsável (índice 4)
-    const dentistColumn = headerRow.getElementsByTagName("th")[4];
-    dentistColumn.appendChild(createSortIcon(4));
-  }
+  const headerRow = document.getElementById("pacientesTable").getElementsByTagName("thead")[0].getElementsByTagName("tr")[0];
+
+  // Remover ícones de ordenação existentes
+  // debugger
+  const existingIcons = headerRow.querySelectorAll(".tableIcon");
+  existingIcons.forEach(icon => icon.remove());
+
+  // Adicionar ícone de ordenação à coluna de Nome (índice 0)
+  const nameColumn = headerRow.getElementsByTagName("th")[0];
+  nameColumn.appendChild(createSortIcon(0));
+
+  // Adicionar ícone de ordenação à coluna de Data da Consulta (índice 3)
+  const dateColumn = headerRow.getElementsByTagName("th")[3];
+  dateColumn.appendChild(createSortIcon(3));
+
+  // Adicionar ícone de ordenação à coluna de Dentista Responsável (índice 4)
+  const dentistColumn = headerRow.getElementsByTagName("th")[4];
+  dentistColumn.appendChild(createSortIcon(4));
+}
+
   
   // Função para criar ícone de ordenação
   export function createSortIcon(columnIndex) {

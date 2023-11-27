@@ -13,13 +13,11 @@ import { renderPatientsTable } from "../view/renderPatientsTable/renderPatientsT
 
 // Variáveis globais
 let adminList = JSON.parse(window.localStorage.getItem("adminList")) || []
-let patientList = JSON.parse(window.localStorage.getItem("patientList")) || [];
-console.log(patientList)
+let patientsList = JSON.parse(window.localStorage.getItem("patientsList")) || [];
+console.log(adminList)
+console.log(patientsList)
+// window.localStorage.removeItem('patientsList')
 
-  // window.localStorage.removeItem('patientList')
-
-
-// Configuração inicial
 document.addEventListener("DOMContentLoaded", setup);
 
 // Registro de usuários
@@ -58,9 +56,9 @@ function setup() {
   document.querySelector("#inputLoginPass").value = "123456789"
   document.querySelector("#btnLogin").click();
   document.querySelector("#openDialogBtn").click()
-  initModalControl(patientList);
-  fillFormWithDummyData();
-  renderPatientsTable(patientList);
+  initModalControl(patientsList);
+  // fillFormWithDummyData();
+  renderPatientsTable(patientsList);
 
 }
 
