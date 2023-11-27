@@ -8,6 +8,8 @@ $darkgreen: #00312E;
 $rosebackground: #FDC5C6;
 
 body {
+    font-smooth: none;
+
     width: 100vw;
     min-height: 100vh;
     background-image: url(../assets/bg.jpg);
@@ -16,8 +18,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-left: 20px;
+    padding: 50px;
 
+    button{
+        text-align: center;
+    }
     .previous {
         padding: 10px;
         font-weight: 500;
@@ -280,89 +285,1021 @@ body {
 
     // Estilo base para a tabela
     #patientControl {
-        display: flex;
+        display: none;
+        flex-direction: column;
+        // border: 1px solid red;
+        align-items: center;
+        // gap: 20px;
 
-        .accordion {
-            overflow: hidden;
+        min-width: 90vw;
+        #openDialogBtn {
+            background-color: rgba(52, 152, 219, 0.8); /* Azul escuro com transparência */
+            color: #ecf0f1; /* Cor do texto clara */
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 300px;
+            transition: background-color 0.3s ease;
+          
+            &:hover {
+              background-color: rgba(41, 128, 185, 0.8); /* Azul escuro mais escuro no hover */
+            }
+          }
 
-            .accordion-item {
+
+        #patientsTable {
+            width: 100%;
+
+
+
+            // $primaryColor: #3498db;
+            // $backgroundColor: #ecf0f1;
+
+            // .accordion {
+            //     overflow: hidden;
+            //     // border: 1px solid $primaryColor;
+            //     margin-bottom: 10px;
+            //     width: 100%;
+            //     opacity: .95;
+            //     color: #cacaca;
+
+            //     .accordion-item {
+            //         // background: rgb(73, 117, 142);
+            //         // background: linear-gradient(90deg, rgba(73, 117, 142, 1) 0%, rgba(73, 117, 142, 1) 35%, rgba(0, 212, 255, 1) 100%);
+            //         background: rgb(82, 116, 135);
+            //         background: linear-gradient(90deg, rgba(82, 116, 135, 1) 0%, rgba(73, 117, 142, 1) 35%, rgba(0, 212, 255, 1) 100%);
+            //         padding: 5px 5px 0 5px;
+
+            //         overflow: hidden;
+            //         display: flex;
+            //         align-items: center;
+            //         flex-direction: column;
+            //         border-radius: 8px;
+            //         border: 1px solid $primaryColor;
+            //         margin-bottom: 10px;
+            //         background-color: $backgroundColor;
+
+            //         &:last-child {
+            //             margin-bottom: 0;
+            //         }
+
+            //         .frontContainer {
+            //             display: flex;
+            //             width: 100%;
+            //             min-height: 50px;
+            //             justify-content: flex-start;
+            //             align-items: flex-start;
+            //             border-bottom: 1px solid $primaryColor;
+            //             border-radius: 8px 8px 0 0;
+            //             padding: 5px;
+
+            //             div {
+            //                 span {
+            //                     display: flex;
+            //                     flex-direction: column;
+            //                     justify-content: flex-start;
+            //                     text-align: left;
+            //                     // border: 1px solid red;
+            //                     text-align: left;
+
+            //                     &:nth-child(1) {
+            //                         font-weight: 600;
+            //                     }
+            //                 }
+
+
+            //             }
+
+
+
+            //             img {
+            //                 width: 70px;
+            //                 height: 70px;
+            //                 // border: 1px solid #fff;
+            //                 border-radius: 50%;
+            //                 object-fit: cover;
+            //                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            //             }
+
+            //             .nameContainer,
+            //             .phoneContainer,
+            //             .dentistContainer,
+            //             .dateConsultContainer,
+            //             .actions {
+            //                 width: 20%;
+            //                 text-align: center;
+            //                 padding: 10px;
+            //                 box-sizing: border-box;
+            //                 flex-direction: row
+            //             }
+
+            //             .nameContainer {
+            //                 // flex: 1;
+            //                 margin: 0 10px;
+            //             }
+
+            //             .actions {
+            //                 display: flex;
+            //                 justify-content: space-around;
+
+            //                 .iconActions {
+            //                     width: 25px;
+            //                     height: 25px;
+            //                     margin: 5px;
+            //                 }
+            //             }
+            //         }
+
+            //         .item-input {
+            //             display: none;
+
+            //             &:checked+.item-label {
+            //                 // background-color: #3498db;
+            //                 // color: #fff;
+            //             }
+
+            //             &:checked~.item-content {
+            //                 max-height: 100vh;
+            //                 padding: 16px;
+            //             }
+            //         }
+
+            //         .item-label {
+            //             background: rgb(73, 117, 142);
+            //             background: linear-gradient(90deg, rgba(73, 117, 142, 1) 0%, rgba(73, 117, 142, 1) 35%, rgba(0, 212, 255, 1) 100%);
+
+            //             cursor: pointer;
+            //             text-align: center;
+            //             display: block;
+            //             justify-self: center;
+            //             padding: 10px;
+            //             box-sizing: border-box;
+            //             width: 100%;
+            //             background-color: #fff;
+            //             font-weight: 600;
+
+
+            //             &:hover {
+            //                 // border-bottom: 1px solid #000;
+            //                 // background-color: #f2f2f2;
+            //             }
+            //         }
+
+            //         .item-content {
+            //             background: rgb(73, 117, 142);
+            //             background: linear-gradient(90deg, rgba(73, 117, 142, 1) 0%, rgba(73, 117, 142, 1) 35%, rgba(0, 212, 255, 1) 100%);
+
+            //             transition: all 0.3s ease-in-out;
+            //             max-height: 0;
+            //             overflow: hidden;
+            //             padding: 0 16px;
+            //             margin-top: 5px;
+            //             width: 100%;
+            //             box-sizing: border-box;
+            //             // border-top: 1px solid #000;
+            //             background-color: #f2f2f2;
+            //         }
+            //     }
+            // }
+
+            // .accordion {
+            //     overflow: hidden;
+            //     border-radius: 10px;
+            //     background-color: rgba(0, 0, 0, 0.8); /* Fundo dark */
+            //     margin-bottom: 20px;
+            //     width: 80%;
+            //     max-width: 600px;
+            //     margin: 20px auto;
+
+            //     .accordion-item {
+            //       overflow: hidden;
+            //       display: flex;
+            //       flex-direction: column;
+            //       margin: 10px;
+
+            //       .frontContainer {
+            //         display: flex;
+            //         flex-direction: column;
+            //         align-items: center;
+            //         padding: 20px;
+            //         gap: 10px;
+            //         border-bottom: 1px solid #444; /* Linha separadora */
+            //         position: relative;
+
+            //         img {
+            //           width: 80px;
+            //           height: 80px;
+            //           border: 1px solid #666;
+            //           border-radius: 50%;
+            //         }
+
+            //         .nameContainer,
+            //         .phoneContainer,
+            //         .dentistContainer,
+            //         .dateConsultContainer {
+            //           display: flex;
+            //           flex-direction: column;
+            //           align-items: center;
+
+            //           span {
+            //             font-size: 14px;
+            //             font-weight: bold;
+            //             color: #fff; /* Cor do texto */
+            //           }
+
+            //           &:first-child {
+            //             margin-top: 10px;
+            //           }
+            //         }
+
+            //         .actions {
+            //           position: absolute;
+            //           top: 10px;
+            //           right: 10px;
+
+            //           .iconActions {
+            //             width: 25px;
+            //             height: 25px;
+            //             margin: 5px;
+            //             cursor: pointer;
+
+            //             &:hover {
+            //               filter: brightness(1.2);
+            //             }
+            //           }
+            //         }
+            //       }
+
+            //       .item-input {
+            //         display: none;
+
+            //         &:checked ~ .item-label {
+            //           /* Aplica estilos quando o checkbox está marcado */
+            //           color: #3498db; /* Cor azul para o texto da label */
+            //         }
+
+            //         &:checked ~ .item-content {
+            //           max-height: 100vh;
+            //           padding: 16px;
+            //         }
+            //       }
+
+            //       .item-label {
+            //         cursor: pointer;
+            //         text-align: center;
+            //         display: block;
+            //         justify-self: center;
+            //         font-size: 18px;
+            //         color: #fff; /* Cor do texto */
+            //       }
+
+            //       .item-content {
+            //         transition: all 0.3s ease-in-out;
+            //         max-height: 0;
+            //         padding: 0 16px;
+            //         overflow: hidden;
+            //         color: #fff; /* Cor do texto */
+            //       }
+
+            //       .addressContainer,
+            //       .observationContainer {
+            //         font-size: 14px;
+            //         margin-top: 10px;
+            //       }
+            //     }
+            //   }
+
+
+            //   .accordion {
+            //     overflow: hidden;
+            //     border-radius: 10px;
+            //     background-color: rgba(0, 0, 0, 0.8); /* Fundo dark */
+            //     margin-bottom: 20px;
+            //     width: 80%;
+            //     max-width: 600px;
+            //     margin: 20px auto;
+
+            //     .accordion-item {
+            //       overflow: hidden;
+            //       display: flex;
+            //       flex-direction: column;
+            //       margin: 10px;
+            //       border: 1px solid #444; /* Bordas escuras entre os itens */
+
+            //       .frontContainer {
+            //         display: flex;
+            //         padding: 10px;
+            //         gap: 10px;
+            //         border-bottom: 1px solid #555; /* Linha separadora mais escura */
+            //         background-color: #333; /* Cor de fundo escura */
+
+            //         img {
+            //           width: 60px;
+            //           height: 60px;
+            //           border: 1px solid #666;
+            //           border-radius: 50%;
+            //         }
+
+            //         .nameContainer,
+            //         .phoneContainer,
+            //         .dentistContainer,
+            //         .dateConsultContainer {
+            //           flex: 1;
+            //           display: flex;
+            //           flex-direction: column;
+            //           align-items: center;
+
+            //           span {
+            //             font-size: 14px;
+            //             font-weight: bold;
+            //             color: #fff; /* Cor do texto */
+            //           }
+
+            //           &:first-child {
+            //             margin-top: 10px;
+            //           }
+            //         }
+
+            //         .actions {
+            //           display: flex;
+            //           gap: 5px;
+
+            //           .iconActions {
+            //             width: 20px;
+            //             height: 20px;
+            //             cursor: pointer;
+
+            //             &:hover {
+            //               filter: brightness(1.2);
+            //             }
+            //           }
+            //         }
+            //       }
+
+            //       .item-input {
+            //         display: none;
+
+            //         &:checked ~ .item-label {
+            //           /* Aplica estilos quando o checkbox está marcado */
+            //           color: #3498db; /* Cor azul para o texto da label */
+            //         }
+
+            //         &:checked ~ .item-content {
+            //           max-height: 100vh;
+            //           padding: 16px;
+            //         }
+            //       }
+
+            //       .item-label {
+            //         cursor: pointer;
+            //         text-align: center;
+            //         display: block;
+            //         justify-self: center;
+            //         font-size: 18px;
+            //         color: #fff; /* Cor do texto */
+            //         background-color: #333; /* Cor de fundo escura */
+            //         padding: 10px;
+            //         border-bottom: 1px solid #555; /* Linha separadora mais escura */
+            //       }
+
+            //       .item-content {
+            //         transition: all 0.3s ease-in-out;
+            //         max-height: 0;
+            //         padding: 0 16px;
+            //         overflow: hidden;
+            //         color: #fff; /* Cor do texto */
+            //         background-color: #333; /* Cor de fundo escura */
+            //       }
+
+            //       .addressContainer,
+            //       .observationContainer {
+            //         font-size: 14px;
+            //         margin-top: 10px;
+            //       }
+            //     }
+            //   }
+            // body {
+            //     margin: 0;
+            //     background: url('path/to/your/background-image.jpg') no-repeat center center fixed;
+            //     background-size: cover;
+            //     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte mais suave */
+            //   }
+
+            //   .accordion {
+            //     overflow: hidden;
+            //     border-radius: 10px;
+            //     background-color: rgba(0, 0, 0, 0.8); /* Fundo dark */
+            //     margin-bottom: 20px;
+            //     width: 90%; /* Aumento da largura */
+            //     max-width: 1000px; /* Largura máxima */
+            //     margin: 20px auto;
+
+            //     .accordion-item {
+            //       overflow: hidden;
+            //       display: flex;
+            //       flex-direction: column;
+            //       margin: 10px;
+            //       border: 1px solid #333; /* Bordas mais escuras */
+
+            //       .frontContainer {
+            //         display: flex;
+            //         padding: 15px;
+            //         gap: 15px; /* Maior espaço entre os itens */
+            //         border-bottom: 1px solid #444; /* Linha separadora mais escura */
+            //         background-color: rgba(0, 0, 0, 0.95); /* Cor de fundo mais escura */
+            //         transition: background-color 0.3s ease;
+
+            //         img {
+            //           width: 70px;
+            //           height: 70px;
+            //           border: 2px solid #666; /* Borda mais grossa */
+            //           border-radius: 50%;
+            //         }
+
+            //         .nameContainer,
+            //         .phoneContainer,
+            //         .dentistContainer,
+            //         .dateConsultContainer {
+            //           flex: 1;
+            //           display: flex;
+            //           flex-direction: column;
+            //           align-items: flex-start;
+
+            //           span {
+            //             font-size: 16px; /* Maior tamanho de fonte */
+            //             font-weight: bold;
+            //             color: #ecf0f1;
+            //           }
+
+            //           &:first-child {
+            //             margin-top: 15px; /* Maior espaço no topo do primeiro item */
+            //           }
+            //         }
+
+            //         .actions {
+            //           display: flex;
+            //           gap: 8px; /* Maior espaço entre os ícones */
+
+            //           .iconActions {
+            //             width: 24px; /* Tamanho um pouco maior */
+            //             height: 24px;
+            //             cursor: pointer;
+
+            //             &:hover {
+            //               filter: brightness(1.2);
+            //             }
+            //           }
+            //         }
+            //       }
+
+            //       .item-input {
+            //         display: none;
+
+            //         &:checked ~ .item-label {
+            //           color: #3498db;
+            //         }
+
+            //         &:checked ~ .item-content {
+            //           max-height: 100vh;
+            //           padding: 20px; /* Maior espaço interno */
+            //         }
+            //       }
+
+            //       .item-label {
+            //         cursor: pointer;
+            //         text-align: left;
+            //         display: block;
+            //         justify-self: center;
+            //         font-size: 20px; /* Maior tamanho de fonte */
+            //         color: #ecf0f1;
+            //         background-color: rgba(0, 0, 0, 0.95); /* Cor de fundo mais escura */
+            //         padding: 15px; /* Maior espaço interno */
+            //         border-bottom: 1px solid #444; /* Linha separadora mais escura */
+            //         font-weight: bold;
+            //       }
+
+            //       .item-content {
+            //         transition: all 0.3s ease-in-out;
+            //         max-height: 0;
+            //         padding: 0 20px;
+            //         overflow: hidden;
+            //         color: #ecf0f1;
+            //         background-color: rgba(0, 0, 0, 0.95);
+            //       }
+
+            //       .addressContainer,
+            //       .observationContainer {
+            //         font-size: 16px;
+            //         margin-top: 15px;
+            //       }
+            //     }
+            //   }
+            // body {
+            //     margin: 0;
+            //     background: url('path/to/your/background-image.jpg') no-repeat center center fixed;
+            //     background-size: cover;
+            // }
+
+            // .accordion {
+            //     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            //     /* Fonte mais suave */
+            //     color: #FFF;
+            //     overflow: hidden;
+            //     border-radius: 10px;
+            //     background-color: rgba(0, 0, 0, 0.8);
+            //     /* Fundo dark com transparência */
+            //     margin-bottom: 20px;
+            //     width: 90%;
+            //     /* Ajuste da largura */
+            //     max-width: 1000px;
+            //     /* Largura máxima */
+            //     margin: 20px auto;
+
+            //     .accordion-item {
+            //         overflow: hidden;
+            //         display: flex;
+            //         flex-direction: column;
+            //         margin: 5px;
+            //         /* Ajuste de margem */
+            //         border: 1px solid #333;
+            //         /* Bordas mais escuras */
+            //         background-color: rgba(0, 0, 0, 0.7);
+            //         /* Cor de fundo mais escura */
+
+            //         .frontContainer {
+            //             display: flex;
+            //             padding: 10px;
+            //             /* Ajuste de padding */
+            //             gap: 10px;
+            //             /* Espaço entre os itens */
+            //             border-bottom: 1px solid #444;
+            //             /* Linha separadora mais escura */
+            //             transition: background-color 0.3s ease;
+
+            //             img {
+            //                 width: 40px;
+            //                 /* Ajuste de largura */
+            //                 height: 40px;
+            //                 /* Ajuste de altura */
+            //                 border: 2px solid #666;
+            //                 /* Borda mais grossa */
+            //                 border-radius: 50%;
+            //             }
+
+            //             .infoContainer {
+            //                 display: flex;
+            //                 flex-direction: column;
+            //                 flex: 1;
+
+            //                 .nameContainer,
+            //                 .phoneContainer,
+            //                 .dentistContainer,
+            //                 .dateConsultContainer {
+            //                     display: flex;
+            //                     flex-direction: column;
+            //                     align-items: flex-start;
+
+            //                     span {
+            //                         font-size: 14px;
+            //                         /* Redução do tamanho de fonte */
+            //                         font-weight: bold;
+            //                         color: #ecf0f1;
+            //                         margin-top: 3px;
+            //                     }
+            //                 }
+            //             }
+
+            //             .actions {
+            //                 display: flex;
+            //                 gap: 8px;
+            //                 /* Espaço entre os ícones */
+
+            //                 .iconActions {
+            //                     width: 20px;
+            //                     /* Tamanho dos ícones reduzido */
+            //                     height: 20px;
+            //                     cursor: pointer;
+
+            //                     &:hover {
+            //                         filter: brightness(1.2);
+            //                     }
+            //                 }
+            //             }
+            //         }
+
+            //         .item-input {
+            //             display: none;
+
+            //             &:checked~.item-label {
+            //                 color: #3498db;
+            //             }
+
+            //             &:checked~.item-content {
+            //                 max-height: 100vh;
+            //                 padding: 10px;
+            //                 /* Ajuste de espaço interno */
+            //             }
+            //         }
+
+            //         .item-label {
+            //             cursor: pointer;
+            //             text-align: left;
+            //             display: block;
+            //             justify-self: center;
+            //             font-size: 16px;
+            //             /* Redução do tamanho de fonte */
+            //             color: #ecf0f1;
+            //             background-color: rgba(0, 0, 0, 0.7);
+            //             /* Cor de fundo mais escura */
+            //             padding: 10px;
+            //             /* Ajuste de espaço interno */
+            //             border-bottom: 1px solid #444;
+            //             font-weight: bold;
+            //         }
+
+            //         .item-content {
+            //             transition: all 0.3s ease-in-out;
+            //             max-height: 0;
+            //             padding: 0 10px;
+            //             /* Ajuste de espaço interno */
+            //             overflow: hidden;
+            //             color: #ecf0f1;
+            //             background-color: rgba(0, 0, 0, 0.7);
+            //         }
+
+            //         .addressContainer,
+            //         .observationContainer {
+            //             font-size: 14px;
+            //             /* Redução do tamanho de fonte */
+            //             margin-top: 5px;
+            //             /* Ajuste de margem */
+            //         }
+            //     }
+            // }
+
+            // body {
+            //     margin: 0;
+            //     background: url('path/to/your/background-image.jpg') no-repeat center center fixed;
+            //     background-size: cover;
+            //     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte mais suave */
+            //   }
+
+            //   .accordion {
+            //     overflow: hidden;
+            //     border-radius: 10px;
+            //     background-color: rgba(0, 0, 0, 0.8); /* Fundo dark com transparência */
+            //     margin-bottom: 20px;
+            //     width: 90%; /* Ajuste da largura */
+            //     max-width: 1000px; /* Largura máxima */
+            //     margin: 20px auto;
+
+            //     .accordion-item {
+            //       overflow: hidden;
+            //       display: flex;
+            //       flex-direction: column;
+            //       margin: 5px; /* Ajuste de margem */
+            //       border: 1px solid #333; /* Bordas mais escuras */
+            //       background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo mais escura */
+
+            //       .frontContainer {
+            //         display: flex;
+            //         flex-wrap: wrap; /* Adição de wrap para os títulos e valores ficarem em linhas separadas se não couberem em uma linha */
+            //         padding: 10px; /* Ajuste de padding */
+            //         gap: 10px; /* Espaço entre os itens */
+            //         border-bottom: 1px solid #444; /* Linha separadora mais escura */
+            //         transition: background-color 0.3s ease;
+
+            //         img {
+            //           width: 40px; /* Ajuste de largura */
+            //           height: 40px; /* Ajuste de altura */
+            //           border: 2px solid #666; /* Borda mais grossa */
+            //           border-radius: 50%;
+            //         }
+
+            //         .infoContainer {
+            //           display: flex;
+            //           flex-direction: column;
+            //           flex: 1;
+
+            //           .infoItem {
+            //             display: flex;
+            //             flex-direction: column;
+            //             align-items: flex-start;
+            //             flex-basis: calc(50% - 10px); /* Ajuste de largura para ocupar metade do espaço */
+
+            //             span {
+            //               font-size: 14px; /* Redução do tamanho de fonte */
+            //               font-weight: bold;
+            //               color: #ecf0f1;
+            //               margin-top: 3px; /* Espaço entre os spans */
+            //             }
+            //           }
+            //         }
+
+            //         .actions {
+            //           display: flex;
+            //           gap: 8px; /* Espaço entre os ícones */
+
+            //           .iconActions {
+            //             width: 20px; /* Tamanho dos ícones reduzido */
+            //             height: 20px;
+            //             cursor: pointer;
+
+            //             &:hover {
+            //               filter: brightness(1.2);
+            //             }
+            //           }
+            //         }
+            //       }
+
+            //       .item-input {
+            //         display: none;
+
+            //         &:checked ~ .item-label {
+            //           color: #3498db;
+            //         }
+
+            //         &:checked ~ .item-content {
+            //           max-height: 100vh;
+            //           padding: 10px; /* Ajuste de espaço interno */
+            //         }
+            //       }
+
+            //       .item-label {
+            //         cursor: pointer;
+            //         text-align: left;
+            //         display: block;
+            //         justify-self: center;
+            //         font-size: 16px; /* Redução do tamanho de fonte */
+            //         color: #ecf0f1;
+            //         background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo mais escura */
+            //         padding: 10px; /* Ajuste de espaço interno */
+            //         border-bottom: 1px solid #444;
+            //         font-weight: bold;
+            //       }
+
+            //       .item-content {
+            //         transition: all 0.3s ease-in-out;
+            //         max-height: 0;
+            //         padding: 0 10px; /* Ajuste de espaço interno */
+            //         overflow: hidden;
+            //         color: #ecf0f1;
+            //         background-color: rgba(0, 0, 0, 0.7);
+            //       }
+
+            //       .addressContainer,
+            //       .observationContainer {
+            //         font-size: 14px; /* Redução do tamanho de fonte */
+            //         margin-top: 5px; /* Ajuste de margem */
+            //       }
+            //     }
+            //   }
+
+            body {
+                margin: 0;
+                background: url('path/to/your/background-image.jpg') no-repeat center center fixed;
+                background-size: cover;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            .accordion {
                 overflow: hidden;
-                display: flex;
-                flex-direction: column;
+                border-radius: 10px;
+                background-color: rgba(0, 0, 0, 0.8);
+                margin-bottom: 20px;
+                width: 90%;
+                max-width: 1000px;
+                margin: 20px auto;
+                color: #ecf0f1;
 
-                .frontContainer {
+                .title {
+                    display: block;
+                    width: 100%;
+                }
+
+                .accordion-item {
+                    overflow: hidden;
                     display: flex;
-                    gap: 10px;
+                    flex-direction: column;
+                    width: 100%;
+                    margin: 5px;
+                    border: 1px solid #333;
+                    background-color: rgba(0, 0, 0, 0.7);
 
-                    img {
-                        // Estilos para a imagem
-                    }
-
-                    .nameContainer {
-                        // Estilos para o nome
-                    }
-
-                    .phoneContainer {
-                        // Estilos para o telefone
-                    }
-
-                    .dentistContainer {
-                        // Estilos para o dentista
-                    }
-
-                    .dateConsultContainer {
-                        // Estilos para a data da consulta
-                    }
-
-                    .actions {
+                    .frontContainer {
                         display: flex;
+                        justify-content: space-between;
 
-                        .iconActions {
-                            width: 20px;
-                            height: 20px;
+                        padding: 10px;
+                        gap: 10px;
+                        border-bottom: 1px solid #444;
+                        transition: background-color 0.3s ease;
 
-                            .viewIcon {
-                                // Estilos para o ícone de visualização
+                        img {
+                            width: 60px;
+                            height: 60px;
+                            border: 2px solid #666;
+                            border-radius: 50%;
+                        }
+
+                        .infoContainer {
+                            display: flex;
+                            flex-direction: column;
+                            flex: 1;
+
+                            .infoItem {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: flex-start;
+                                width: 50%;
+
+                                span {
+                                    font-size: 14px;
+                                    font-weight: bold;
+                                    color: #ecf0f1;
+                                    margin-top: 3px;
+                                }
                             }
+                        }
 
-                            .editIcon {
-                                // Estilos para o ícone de edição
-                            }
+                        .actions {
+                            display: flex;
+                            gap: 8px;
 
-                            .deleteIcon {
-                                // Estilos para o ícone de exclusão
+                            .iconActions {
+                                width: 20px;
+                                height: 20px;
+                                cursor: pointer;
+
+                                &:hover {
+                                    filter: brightness(1.2);
+                                }
                             }
                         }
                     }
-                }
 
-                .item-input {
-                    display: none;
+                    .item-input {
+                        display: none;
 
-                    &:checked~.item-content {
-                        max-height: 100vh;
-                        padding: 16px;
+                        &:checked~.item-label {
+                            color: #3498db;
+                        }
+
+                        &:checked~.item-content {
+                            max-height: 100vh;
+                            padding: 10px;
+                        }
+                    }
+
+                    .item-label {
+                        cursor: pointer;
+                        text-align: left;
+                        display: block;
+                        justify-self: center;
+                        font-size: 16px;
+                        color: #ecf0f1;
+                        background-color: rgba(0, 0, 0, 0.7);
+                        padding: 10px;
+                        border-bottom: 1px solid #444;
+                        font-weight: bold;
+                    }
+
+                    .item-content {
+                        transition: all 0.3s ease-in-out;
+                        max-height: 0;
+                        padding: 0 10px;
+                        overflow: hidden;
+                        color: #ecf0f1;
+                        background-color: rgba(0, 0, 0, 0.7);
+                    }
+
+                    .addressContainer,
+                    .observationContainer {
+                        font-size: 14px;
+                        margin-top: 5px;
                     }
                 }
-
-                .item-label {
-                    // Estilos para a etiqueta do item
-                }
-
-                .item-content {
-                    transition: all 0.3s ease-in-out;
-                    max-height: 0;
-                    padding: 0 16px;
-
-                    // Estilos para o conteúdo do item
-                }
             }
+
+
+
+
+
         }
 
 
 
+    }
 
+    #clientRegistrationDialog {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        padding: 20px;
+        border-radius: 10px;
+        width: 60vw;
+        margin: 20px auto;
 
+        .buttons {
+            #clearDialogBtn {
+                background-color: #e74c3c;
+
+                /* Vermelho - Limpar */
+                &:hover {
+                    background-color: #c0392b;
+                }
+            }
+
+            #btnSalvarNewRegister {
+                background-color: #27ae60;
+
+                /* Verde - Salvar */
+                &:hover {
+                    background-color: #219b56;
+                }
+            }
+
+            #closeDialogBtn {
+                background-color: #7f8c8d;
+
+                /* Cinza - Fechar */
+                &:hover {
+                    background-color: #626d71;
+                }
+            }
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+
+            .userGroup,
+            .address,
+            .consult {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+            }
+
+            .addressGroup {
+                width: 100%;
+            }
+
+            label {
+                margin-bottom: 5px;
+            }
+
+            .groupItem {
+                flex: 1;
+                margin-right: 10px;
+
+                label {
+                    display: block;
+                    // margin-bottom: 5px;
+                }
+
+                input,
+                select,
+                textarea {
+                    width: 100%;
+                    padding: 10px;
+                    // margin-top: 5px;
+                    border: 1px solid #34495e;
+                    border-radius: 5px;
+                    background-color: #34495e;
+                    color: #ecf0f1;
+                    box-sizing: border-box;
+                    outline: none;
+                }
+            }
+
+            .consult {
+                .groupItem {
+                    flex: 1;
+                }
+            }
+
+            .buttons {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+
+                button {
+                    background-color: #3498db;
+                    color: #ecf0f1;
+                    padding: 10px;
+                    margin: 0 5px;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    min-width: 10vw;
+
+                    &:hover {
+                        background-color: #2980b9;
+                    }
+                }
+            }
+        }
     }
 
 

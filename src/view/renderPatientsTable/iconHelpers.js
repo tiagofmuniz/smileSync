@@ -6,20 +6,20 @@ import { handleFormSubmission } from "../../model/patientControll/initModalContr
 import { getLatestConsultation } from "../../utils/getLatestConsultation.js";
 import { openUpdatePatientModal } from "./modalHelpers.js";
 
-export function createIcon(className, iconName, patientId, patientData) {
-  // console.log(className)
-  // console.log(iconName)
-  // console.log(patientId)
-  // console.log(patientData)
-  const icon = document.createElement("img");
-  icon.className = className;
-  icon.src = `src/assets/${iconName}`;
-  icon.alt = "Icon";
-  icon.dataset.patientId = patientId;
-  icon.dataset.patientData = JSON.stringify(patientData);
-  icon.addEventListener("click", handleIconClick);
-  return icon;
-}
+// export function createIcon(className, iconName, patientId, patientData) {
+//   // console.log(className)
+//   // console.log(iconName)
+//   // console.log(patientId)
+//   // console.log(patientData)
+//   const icon = document.createElement("img");
+//   icon.className = className;
+//   icon.src = `src/assets/${iconName}`;
+//   icon.alt = "Icon";
+//   icon.dataset.patientId = patientId;
+//   icon.dataset.patientData = JSON.stringify(patientData);
+//   icon.addEventListener("click", handleIconClick);
+//   return icon;
+// }
 
 export function handleIconClick(event) {
   const patientId = event.target.dataset.patientId;
@@ -54,7 +54,7 @@ export function handleIconClick(event) {
         });
       }
       
-      openUpdatePatientModal(patientData, patientData);
+      openUpdatePatientModal(patientData);
       // clearFormFields();
 
       break;

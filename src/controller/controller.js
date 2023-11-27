@@ -44,20 +44,13 @@ previous.forEach((previousLink) => {
   previousLink.addEventListener("click", handlePrevious);
 });
 
-// Botão "Entrar"
 const btnToEnter = document.querySelector("#btnToEnter");
 btnToEnter.addEventListener("click", handleToEnter);
 
 // Funções
 function setup() {
-  // document.querySelector("#openDialogBtn").click();
-  document.querySelector("#btnToEnter").click();
-  document.querySelector("#inputLoginEmail").value = "teste@teste.com"
-  document.querySelector("#inputLoginPass").value = "123456789"
-  // document.querySelector("#btnLogin").click();
-  // document.querySelector("#openDialogBtn").click()
+
   initModalControl(patientsList);
-  // fillFormWithDummyData();
   renderPatientsTable(patientsList);
 
 }

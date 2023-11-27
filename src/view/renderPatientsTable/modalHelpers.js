@@ -1,14 +1,9 @@
-// modalHelpers.js
-
-import { renderPatientsTable } from "./renderPatientsTable.js";
 
 export function openUpdatePatientModal(patientData) {
   console.log(patientData)
   const modal = document.querySelector("#clientRegistrationDialog");
   modal.showModal();
 
-  // Limpar o conteúdo do modal antes de abrir
-  // clearFormFields();
   let adminList = JSON.parse(window.localStorage.getItem("adminList")) || [];
 
 
@@ -22,7 +17,7 @@ export function openUpdatePatientModal(patientData) {
   document.getElementById("cep").value = patientData?.patientInfo?.adress.cep || "";
   document.getElementById("clientAppointmentDate").value = patientData?.latestConsult?.dateInfo.date || "";
   document.getElementById("clientAppointmentTime").value = patientData?.latestConsult?.dateInfo.time || "";
-  document.getElementById("observation").value = patientData?.observation ?? "";
+  document.getElementById("observation").value = patientData?.latestConsult?.observation ?? "";
 
   const dentistSelect = document.getElementById("dentist");
   dentistSelect.innerHTML = "";
@@ -36,31 +31,4 @@ export function openUpdatePatientModal(patientData) {
 
   dentistSelect.value = patientData?.latestConsult?.dentist?.dentistId ?? "";
 
-  // const updateButton = document.getElementById("clientRegistrationForm").querySelector('[type="submit"]');
-  // updateButton.removeEventListener("click", handleUpdateButtonClick);
-  // updateButton.addEventListener("click", () => handleUpdateButtonClick(patientData));
 }
-
-// export function handleUpdatePatient(updatedPatient) {
-//   const patientId = updatedPatient.patientInfo.id; // Corrigido para acessar o ID corretamente
-//   let patientsList = JSON.parse(window.localStorage.getItem("patientsList")) || [];
-//   const patientIndex = patientsList.findIndex((patient) => patient.patientInfo.id === patientId);
-
-//   if (patientIndex === -1) {
-//     console.error("Paciente não encontrado na lista.");
-//     return;
-//   }
-
-//   patientsList[patientIndex] = updatedPatient;
-//   window.localStorage.removeItem("patientsList"); // Corrigido para "patientsList"
-//   window.localStorage.setItem("patientsList", JSON.stringify(patientsList));
-
-//   const modal = document.getElementById("clientRegistrationDialog");
-//   modal.close();
-
-//   renderPatientsTable(patientsList);
-// }
-
-// function handleUpdateButtonClick(updatedPatient) {
-//   handleUpdatePatient(updatedPatient);
-// }

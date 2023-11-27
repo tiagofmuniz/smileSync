@@ -20,6 +20,9 @@ export function initModalControl() {
 
   openDialogBtn.addEventListener("click", () => {
     clientRegistrationDialog.showModal();
+    const btnSalvarNewRegister = document.querySelector("#btnSalvarNewRegister");
+    btnSalvarNewRegister.style.display = "flex";
+
     listDentists(adminList);
   });
 
@@ -61,11 +64,10 @@ export function initModalControl() {
   }
 }
 export function handleFormSubmission(clientRegistrationDialog) {
- 
   const clientName = document.querySelector("#clientName").value ?? "";
   const clientPhone = document.querySelector("#clientPhone").value;
   const clientAppointmentDate = document.querySelector("#clientAppointmentDate").value;
-  console.log(clientAppointmentDate)
+  console.log(clientAppointmentDate);
   const clientAppointmentTime = document.querySelector("#clientAppointmentTime").value;
   const observation = document.querySelector("#observation").value;
 
