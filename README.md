@@ -19,6 +19,7 @@
 2. Abra o arquivo `index.html` em seu navegador.
 3. Utilize o formulário para adicionar novos registros de pacientes, agendar consultas e incluir observações.
 4. Os registros são armazenados localmente no navegador usando Local Storage.
+5. Senhas criadas devem ter pelo menos 8 caracteres.
 
 > ## Funcionalidades
 
