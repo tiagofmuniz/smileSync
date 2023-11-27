@@ -1,6 +1,6 @@
 <div align="center">
   <h1>SmileSync</h1>
-  <img src="src/assets/gifs_smileSync.criarconta.gif" alt="Fluxo de criação de conta" >
+  <img src="src/assets/gifs_smileSync/criarconta.gif" alt="Fluxo de criação de conta" >
 </div>
 
 > ## Descrição
@@ -35,13 +35,13 @@
 3. Duplicata de botões ocorrendo em algumas situaç~eos.
 
 <div align="center">
-  <img src="src/assets/gifs_smileSync.logar.gif" alt="Fluxo de login" >
+  <img src="src/assets/gifs_smileSync/logar.gif" alt="Fluxo de login" >
 </div>
 
 <div align="center">
-  <img src="src/assets/gifs_smileSync.resetdesenha.gif" alt="Fluxo de reset de senha" >
+  <img src="src/assets/gifs_smileSync.resetdesenha/gif" alt="Fluxo de reset de senha" >
 </div>
 
 <div align="center">
-  <img src="src/assets/gifs_smileSync.crud.gif" alt="crud" >
+  <img src="src/assets/gifs_smileSync/crud.gif" alt="crud" >
 </div>
