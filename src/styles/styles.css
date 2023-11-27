@@ -12,6 +12,7 @@ body {
   background-position: center;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding-left: 20px;
 }
 body .previous {
@@ -223,62 +224,38 @@ body #formLogin #btnLogin {
   outline: none;
 }
 body #patientControl {
-  display: none;
+  display: flex;
+}
+body #patientControl .accordion {
+  overflow: hidden;
+}
+body #patientControl .accordion .accordion-item {
+  overflow: hidden;
+  display: flex;
   flex-direction: column;
 }
-body #patientControl #addItem {
-  cursor: pointer;
-  background-color: red;
+body #patientControl .accordion .accordion-item .frontContainer {
+  display: flex;
+  gap: 10px;
 }
-body #patientControl #pacientesTable {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+body #patientControl .accordion .accordion-item .frontContainer .actions {
+  display: flex;
 }
-body #patientControl #pacientesTable th,
-body #patientControl #pacientesTable td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
-body #patientControl #pacientesTable th {
-  background-color: #f2f2f2;
-}
-body #patientControl #pacientesTable tbody tr:hover {
-  background-color: #f5f5f5;
-}
-body #patientControl .tableIcon {
+body #patientControl .accordion .accordion-item .frontContainer .actions .iconActions {
   width: 20px;
   height: 20px;
-  cursor: pointer;
-  margin: 5px;
 }
-body #patientControl dialog {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 20px;
-  background-color: #fff;
+body #patientControl .accordion .accordion-item .item-input {
+  display: none;
 }
-body #patientControl label {
-  display: block;
-  margin-bottom: 8px;
+body #patientControl .accordion .accordion-item .item-input:checked ~ .item-content {
+  max-height: 100vh;
+  padding: 16px;
 }
-body #patientControl input {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 16px;
-  box-sizing: border-box;
-}
-body #patientControl button {
-  padding: 10px;
-  background-color: #4caf50;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
-body #patientControl button:hover {
-  background-color: #45a049;
+body #patientControl .accordion .accordion-item .item-content {
+  transition: all 0.3s ease-in-out;
+  max-height: 0;
+  padding: 0 16px;
 }
 
 /*# sourceMappingURL=styles.css.map */

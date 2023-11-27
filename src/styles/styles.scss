@@ -15,6 +15,7 @@ body {
     background-position: center;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding-left: 20px;
 
     .previous {
@@ -277,82 +278,92 @@ body {
         }
     }
 
+    // Estilo base para a tabela
     #patientControl {
-        display: none;
-        flex-direction: column;
+        display: flex;
 
-        #addItem {
-            cursor: pointer;
-            background-color: red;
-        }
+        .accordion {
+            overflow: hidden;
 
-        // style.scss
+            .accordion-item {
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
 
-        // Estilo básico da tabela
-        #pacientesTable {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+                .frontContainer {
+                    display: flex;
+                    gap: 10px;
 
-            th,
-            td {
-                border: 1px solid #ddd;
-                padding: 8px;
-                text-align: left;
+                    img {
+                        // Estilos para a imagem
+                    }
+
+                    .nameContainer {
+                        // Estilos para o nome
+                    }
+
+                    .phoneContainer {
+                        // Estilos para o telefone
+                    }
+
+                    .dentistContainer {
+                        // Estilos para o dentista
+                    }
+
+                    .dateConsultContainer {
+                        // Estilos para a data da consulta
+                    }
+
+                    .actions {
+                        display: flex;
+
+                        .iconActions {
+                            width: 20px;
+                            height: 20px;
+
+                            .viewIcon {
+                                // Estilos para o ícone de visualização
+                            }
+
+                            .editIcon {
+                                // Estilos para o ícone de edição
+                            }
+
+                            .deleteIcon {
+                                // Estilos para o ícone de exclusão
+                            }
+                        }
+                    }
+                }
+
+                .item-input {
+                    display: none;
+
+                    &:checked~.item-content {
+                        max-height: 100vh;
+                        padding: 16px;
+                    }
+                }
+
+                .item-label {
+                    // Estilos para a etiqueta do item
+                }
+
+                .item-content {
+                    transition: all 0.3s ease-in-out;
+                    max-height: 0;
+                    padding: 0 16px;
+
+                    // Estilos para o conteúdo do item
+                }
             }
-
-            th {
-                background-color: #f2f2f2;
-            }
-
-            tbody tr:hover {
-                background-color: #f5f5f5;
-            }
-
-            // Estilo para as células de ações (ícones)
-       
         }
 
-        // Estilo para os ícones
-        .tableIcon{
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-            // padding: 3px;
-            margin:5px
-        }
 
-        dialog {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 20px;
-            background-color: #fff;
-        }
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-        }
 
-        input {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
-            box-sizing: border-box;
-        }
-
-        button {
-            padding: 10px;
-            background-color: #4caf50;
-            color: #fff;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
 
     }
+
+
 }
