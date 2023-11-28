@@ -4,7 +4,7 @@
 </div>
 
 > ## Descrição
-   SmileSync é um sistema simples de gerenciamento de registros de pacientes para consultas odontológicas. Desenvolvido em JavaScript puro e SCSS, utiliza Local Storage para persistência de dados, permitindo operações básicas de CRUD (Criar, Ler, Atualizar, Deletar) de registros.
+   SmileSync é um sistema simples de gerenciamento de registros de pacientes para consultas odontológicas. Desenvolvido em JavaScript puro e SCSS, utiliza Local Storage para persistência de dados, permitindo operações básicas de CRUD (Criar, Ler, Atualizar, Deletar registros).
 
 > ## Tecnologias
 
@@ -17,9 +17,11 @@
 
 1. Faça o clone deste repositório: https://github.com/tiagofmuniz/smileSync.git
 2. Abra o arquivo `index.html` em seu navegador.
-3. Utilize o formulário para adicionar novos registros de pacientes, agendar consultas e incluir observações.
-4. Os registros são armazenados localmente no navegador usando Local Storage.
-5. Senhas criadas devem ter pelo menos 8 caracteres.
+3. Utilize o formulário inicial para registrar um conta.
+4. Acesse o sistema através da conta criada.
+5. Após acessar, utilize o formulário para adicionar novos registros de pacientes, agendar consultas e incluir observações.
+6. Os registros são armazenados localmente no navegador usando Local Storage.
+7. Senhas criadas devem ter pelo menos 8 caracteres.
 
 > ## Funcionalidades
 
