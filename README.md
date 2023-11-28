@@ -35,14 +35,14 @@
 
 1. Estilização de alguns elementos como botões.
 2. Readaptação para interface tabela.
-3. Duplicata de botões ocorrendo em algumas situaç~eos.
+3. Duplicata de botões ocorrendo em algumas situações.
 
 <div align="center">
-  <img src="src/assets/gifs_smileSync/logar.gif" alt="Fluxo de login" >
+  <img src="src/assets/gifs_smileSync/logar.gif" alt="Fluxo de login">
 </div>
 
 <div align="center">
-  <img src="src/assets/gifs_smileSync.resetdesenha/gif" alt="Fluxo de reset de senha" >
+  <img src="src/assets/gifs_smileSync.resetdesenha/gif" alt="Fluxo de reset de senha">
 </div>
 
 <div align="center">
